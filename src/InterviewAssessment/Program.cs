@@ -1,7 +1,17 @@
+using InterviewAssessment.Models.Settings;
+using InterviewAssessment.Services.Implementations;
+using InterviewAssessment.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+
+builder.Services.Configure<WeatherSettings>(builder.Configuration.GetSection(nameof(WeatherSettings)));
 
 var app = builder.Build();
 
