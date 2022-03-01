@@ -10,7 +10,7 @@ namespace InterviewAssessment.Test.Controllers
 
         public HomeControllerTests()
         {
-            _homeController = new HomeController();
+            _homeController = new HomeController(null, null);
         }
 
         [Fact]
